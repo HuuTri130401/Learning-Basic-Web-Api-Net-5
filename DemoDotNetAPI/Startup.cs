@@ -1,7 +1,9 @@
+using DemoDotNetAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +30,11 @@ namespace DemoDotNetAPI
         {
 
             services.AddControllers();
+            services.AddDbContext<DemoDbContext>(option =>
+            {
+                option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoDotNetAPI", Version = "v1" });
