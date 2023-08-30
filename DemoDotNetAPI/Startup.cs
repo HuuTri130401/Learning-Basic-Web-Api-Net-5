@@ -30,6 +30,7 @@ namespace DemoDotNetAPI
         {
 
             services.AddControllers();
+            services.AddAuthentication();
             services.AddDbContext<DemoDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
@@ -55,6 +56,7 @@ namespace DemoDotNetAPI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
