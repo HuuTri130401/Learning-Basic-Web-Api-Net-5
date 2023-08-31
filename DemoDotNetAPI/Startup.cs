@@ -1,4 +1,5 @@
 using DemoDotNetAPI.Data;
+using DemoDotNetAPI.Models;
 using DemoDotNetAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +43,7 @@ namespace DemoDotNetAPI
 
             //services.AddScoped<ITypeRepository, TypeRepository>();
             services.AddScoped<ITypeRepository, TypeRepositoryInMemory>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddSwaggerGen(c =>
             {

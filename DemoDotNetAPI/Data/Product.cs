@@ -20,7 +20,6 @@ namespace DemoDotNetAPI.Data
         public int? TypeId { get; set; } //foreign key co the co hoac khong
         [ForeignKey("MaLoai")]
         public Type Type { get; set; }
-
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public Product() 
         { 
