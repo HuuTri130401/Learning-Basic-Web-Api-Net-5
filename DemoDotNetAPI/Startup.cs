@@ -1,4 +1,5 @@
 using DemoDotNetAPI.Data;
+using DemoDotNetAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,13 +29,15 @@ namespace DemoDotNetAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddAuthentication();
             services.AddDbContext<DemoDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
             });
+
+            //services.AddScoped<ITypeRepository, TypeRepository>();
+            services.AddScoped<ITypeRepository, TypeRepositoryInMemory>();
 
             services.AddSwaggerGen(c =>
             {
