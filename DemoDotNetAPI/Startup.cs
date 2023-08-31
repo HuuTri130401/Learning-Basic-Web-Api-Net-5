@@ -36,6 +36,10 @@ namespace DemoDotNetAPI
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
             });
 
+            //This row 
+            //Will be
+            //Confilict
+
             //services.AddScoped<ITypeRepository, TypeRepository>();
             services.AddScoped<ITypeRepository, TypeRepositoryInMemory>();
 
