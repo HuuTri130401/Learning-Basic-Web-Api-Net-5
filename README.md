@@ -1,2 +1,2 @@
 # web-api-net5
-Web API using .NET 5
+Leaning basic Web API using .NET 5
